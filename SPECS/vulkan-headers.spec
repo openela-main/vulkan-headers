@@ -1,7 +1,7 @@
 %global __python %{__python3}
 Name:           vulkan-headers
-Version:        1.3.239.0
-Release:        2%{?dist}
+Version:        1.3.250.1
+Release:        1%{?dist}
 Summary:        Vulkan Header files and API registry
 
 License:        ASL 2.0
@@ -39,6 +39,9 @@ Vulkan Header files and API registry
 %{_datadir}/cmake/VulkanHeaders/*.cmake
 
 %changelog
+* Thu Jul 06 2023 Dave Airlie <airlied@redhat.com> - 1.3.250.1-2
+- Update to 1.3.250.1 headers
+
 * Wed Feb 15 2023 Dave Airlie <airlied@redhat.com> - 1.3.239.0-2
 - bump for process sake
 
