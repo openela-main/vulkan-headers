@@ -1,12 +1,12 @@
 %global __python %{__python3}
 Name:           vulkan-headers
-Version:        1.3.250.1
+Version:        1.3.268.0
 Release:        1%{?dist}
 Summary:        Vulkan Header files and API registry
 
 License:        ASL 2.0
 URL:            https://github.com/KhronosGroup/Vulkan-Headers
-Source0:        %url/archive/sdk-%{version}.tar.gz#/Vulkan-Headers-sdk-%{version}.tar.gz
+Source0:        %url/archive/vulkan-sdk-%{version}.tar.gz#/Vulkan-Headers-sdk-%{version}.tar.gz
 
 BuildRequires:  cmake3
 BuildRequires:  gcc
@@ -16,7 +16,7 @@ BuildArch:      noarch
 Vulkan Header files and API registry
 
 %prep
-%autosetup -n Vulkan-Headers-sdk-%{version}
+%autosetup -n Vulkan-Headers-vulkan-sdk-%{version}
 
 
 %build
@@ -29,7 +29,7 @@ Vulkan Header files and API registry
 
 
 %files
-%license LICENSE.txt
+%license LICENSE.md
 %doc README.md
 %{_includedir}/vulkan/
 %{_includedir}/vk_video/
@@ -39,6 +39,9 @@ Vulkan Header files and API registry
 %{_datadir}/cmake/VulkanHeaders/*.cmake
 
 %changelog
+* Wed Jan 17 2024 José Expósito <jexposit@redhat.com> - 1.3.268.0-1
+- Update to 1.3.268.0 SDK
+
 * Thu Jul 06 2023 Dave Airlie <airlied@redhat.com> - 1.3.250.1-2
 - Update to 1.3.250.1 headers
 
