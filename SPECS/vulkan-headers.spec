@@ -1,6 +1,6 @@
 %global __python %{__python3}
 Name:           vulkan-headers
-Version:        1.3.268.0
+Version:        1.3.283.0
 Release:        1%{?dist}
 Summary:        Vulkan Header files and API registry
 
@@ -20,7 +20,7 @@ Vulkan Header files and API registry
 
 
 %build
-%cmake3 -DCMAKE_INSTALL_LIBDIR=%{_libdir} .
+%cmake3 -DCMAKE_INSTALL_LIBDIR=%{_libdir}
 %cmake_build
 
 
@@ -38,7 +38,11 @@ Vulkan Header files and API registry
 %{_datadir}/vulkan/registry/
 %{_datadir}/cmake/VulkanHeaders/*.cmake
 
+
 %changelog
+* Tue May 28 2024 José Expósito <jexposit@redhat.com> - 1.3.283.0-1
+- Update to 1.3.283.0 SDK
+
 * Wed Jan 17 2024 José Expósito <jexposit@redhat.com> - 1.3.268.0-1
 - Update to 1.3.268.0 SDK
 
