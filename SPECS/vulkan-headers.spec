@@ -1,15 +1,27 @@
+## START: Set by rpmautospec
+## (rpmautospec version 0.6.5)
+## RPMAUTOSPEC: autorelease
+%define autorelease(e:s:pb:n) %{?-p:0.}%{lua:
+    release_number = 1;
+    base_release_number = tonumber(rpm.expand("%{?-b*}%{!?-b:1}"));
+    print(release_number + base_release_number - 1);
+}%{?-e:.%{-e*}}%{?-s:.%{-s*}}%{!?-n:%{?dist}}
+## END: Set by rpmautospec
+
 %global __python %{__python3}
 Name:           vulkan-headers
-Version:        1.3.283.0
-Release:        1%{?dist}
+Version:        1.4.304.0
+Release:        %autorelease
 Summary:        Vulkan Header files and API registry
 
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            https://github.com/KhronosGroup/Vulkan-Headers
 Source0:        %url/archive/vulkan-sdk-%{version}.tar.gz#/Vulkan-Headers-sdk-%{version}.tar.gz
 
 BuildRequires:  cmake3
+BuildRequires:  ninja-build
 BuildRequires:  gcc
+BuildRequires:  gcc-c++
 BuildArch:      noarch       
 
 %description
@@ -20,7 +32,7 @@ Vulkan Header files and API registry
 
 
 %build
-%cmake3 -DCMAKE_INSTALL_LIBDIR=%{_libdir}
+%cmake3 -DCMAKE_INSTALL_LIBDIR=%{_libdir} -GNinja
 %cmake_build
 
 
@@ -40,6 +52,9 @@ Vulkan Header files and API registry
 
 
 %changelog
+* Mon Jan 20 2025 José Expósito <jexposit@redhat.com> - 1.4.304.0-1
+- Update to 1.4.304.0 SDK
+
 * Tue May 28 2024 José Expósito <jexposit@redhat.com> - 1.3.283.0-1
 - Update to 1.3.283.0 SDK
 
