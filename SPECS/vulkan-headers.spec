@@ -1,17 +1,7 @@
-## START: Set by rpmautospec
-## (rpmautospec version 0.6.5)
-## RPMAUTOSPEC: autorelease
-%define autorelease(e:s:pb:n) %{?-p:0.}%{lua:
-    release_number = 1;
-    base_release_number = tonumber(rpm.expand("%{?-b*}%{!?-b:1}"));
-    print(release_number + base_release_number - 1);
-}%{?-e:.%{-e*}}%{?-s:.%{-s*}}%{!?-n:%{?dist}}
-## END: Set by rpmautospec
-
 %global __python %{__python3}
 Name:           vulkan-headers
-Version:        1.4.313.0
-Release:        %autorelease
+Version:        1.4.328.1
+Release:        1%{?dist}
 Summary:        Vulkan Header files and API registry
 
 License:        Apache-2.0
@@ -52,6 +42,9 @@ Vulkan Header files and API registry
 
 
 %changelog
+* Mon Jan 05 2026 José Expósito <jexposit@redhat.com> - 1.4.328.1-1
+- Update to 1.4.328.1 SDK
+
 * Mon Jan 20 2025 José Expósito <jexposit@redhat.com> - 1.4.304.0-1
 - Update to 1.4.304.0 SDK
 
