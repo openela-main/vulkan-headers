@@ -1,6 +1,6 @@
 %global __python %{__python3}
 Name:           vulkan-headers
-Version:        1.4.328.1
+Version:        1.4.341.0
 Release:        1%{?dist}
 Summary:        Vulkan Header files and API registry
 
@@ -8,7 +8,7 @@ License:        Apache-2.0
 URL:            https://github.com/KhronosGroup/Vulkan-Headers
 Source0:        %url/archive/vulkan-sdk-%{version}.tar.gz#/Vulkan-Headers-sdk-%{version}.tar.gz
 
-BuildRequires:  cmake3
+BuildRequires:  cmake
 BuildRequires:  ninja-build
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
@@ -22,7 +22,7 @@ Vulkan Header files and API registry
 
 
 %build
-%cmake3 -DCMAKE_INSTALL_LIBDIR=%{_libdir} -GNinja
+%cmake -DCMAKE_INSTALL_LIBDIR=%{_libdir} -GNinja
 %cmake_build
 
 
@@ -42,6 +42,9 @@ Vulkan Header files and API registry
 
 
 %changelog
+* Thu May 21 2026 Anusha Srivatsa <asrivats@redhat.com> - 1.4.340.0-1
+- Update to 1.4.340.0 SDK
+
 * Mon Jan 05 2026 José Expósito <jexposit@redhat.com> - 1.4.328.1-1
 - Update to 1.4.328.1 SDK
 
